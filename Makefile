@@ -12,8 +12,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-SOURCES = ft_printf.c ft_atoi.c ft_strlen.c ft_isdigit.c ft_itoa.c ft_utoa.c ft_ptoa.c ft_calloc.c ft_memset.c heap.c
-SRCBONUS = ft_printf.c ft_atoi.c ft_strlen.c ft_isdigit.c ft_itoa.c ft_utoa.c ft_ptoa.c ft_calloc.c ft_memset.c heap.c
+SOURCES = ft_printf.c ft_atoi.c ft_strlen.c ft_isdigit.c ft_itoa.c ft_utoa.c ft_ptoa.c ft_calloc.c ft_memset.c heap.c function_priority_utils.c initialize_utils.c print_flag_utils.c print_general_utils.c setting_bit_utils.c set_argument_utils.c setting_function_utils1.c setting_function_utils2.c setting_length_utils.c
+SRCBONUS = ft_printf.c ft_atoi.c ft_strlen.c ft_isdigit.c ft_itoa.c ft_utoa.c ft_ptoa.c ft_calloc.c ft_memset.c heap.c function_priority_utils.c initialize_utils.c print_flag_utils.c print_general_utils.c setting_bit_utils.c set_argument_utils.c setting_function_utils1.c setting_function_utils2.c setting_length_utils.c
 
 all: $(NAME)
 

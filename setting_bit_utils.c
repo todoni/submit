@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setting_bit_utils.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sohan <sohan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/28 23:37:47 by sohan             #+#    #+#             */
+/*   Updated: 2021/09/28 23:37:50 by sohan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	is_flag(char c)
@@ -31,7 +43,7 @@ void	set_precision(const char **fmt, t_component *cmp)
 	{
 		move_fmt_by_length(fmt, 1);
 		cmp->width_precision = ft_atoi(*fmt);
-		move_fmt_by_length(fmt, find_digit(cmp->width_precision));
+		move_fmt_by_length(fmt, find_digit_width(cmp->width_precision));
 		cmp->bit |= precision;
 	}
 }

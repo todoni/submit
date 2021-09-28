@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function_priority_utils.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sohan <sohan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/28 23:36:13 by sohan             #+#    #+#             */
+/*   Updated: 2021/09/28 23:36:17 by sohan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-#include "heap.h"
 
 int	get_used_number(t_fp function[])
 {
-	int index;
+	int	index;
 	int	num;
 
 	index = MAX_SIZE;
@@ -54,28 +65,30 @@ void	insert_to_heap(t_fp function[], t_heap *heap)
 	}
 }
 
-void	print_by_priority(t_heap *heap, t_component *cmp, int *ret)
+int	print_by_priority(t_heap *heap, t_component *cmp, int ret)
 {
-	t_fp *fp;
+	t_fp	*fp;
 
 	while (heap->size)
 	{
 		fp = heap_delete(heap);
+		if (!fp)
+			return (-1);
 		if (fp->print)
-			fp->print(ret);
+			ret = fp->print(ret);
 		else if (fp->print_space)
-			fp->print_space(cmp->width_space, ret);
+			ret = fp->print_space(cmp->width_space, ret);
 		else if (fp->print_padding)
-			fp->print_padding(cmp->width_space, ret);
+			ret = fp->print_padding(cmp->width_space, ret);
 		else if (fp->print_precision)
-			fp->print_precision(cmp->width_padding, ret);
+			ret = fp->print_precision(cmp->width_padding, ret);
 		else if (fp->print_string)
-			fp->print_string(cmp->str, cmp->width_str, ret);
+			ret = fp->print_string(cmp->str, cmp->width_str, ret);
 		else if (fp->print_char)
-			fp->print_char(cmp->_int, ret);
+			ret = fp->print_char(cmp->_int, ret);
 		else if (fp->print_plus)
-			fp->print_plus(cmp->_int, ret);
+			ret = fp->print_plus(cmp->_int, ret);
 		free(fp);
 	}
+	return (ret);
 }
-

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_argument_utils.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sohan <sohan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/28 23:37:37 by sohan             #+#    #+#             */
+/*   Updated: 2021/09/28 23:37:39 by sohan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	get_argument_value(va_list arg_ptr, t_component *cmp)
@@ -5,7 +17,7 @@ void	get_argument_value(va_list arg_ptr, t_component *cmp)
 	if (cmp->bit & int_mask)
 		cmp->_int = va_arg(arg_ptr, int);
 	else if (cmp->bit & string)
-		cmp->str = va_arg(arg_ptr, char*);
+		cmp->str = va_arg(arg_ptr, char *);
 	else if (cmp->bit & pointer)
 		cmp->_pointer = va_arg(arg_ptr, unsigned long long);
 	else if (cmp->bit & u_int_mask)

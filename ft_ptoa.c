@@ -9,6 +9,7 @@
 /*   Updated: 2021/09/28 21:17:13 by sohan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	find_digit_p(unsigned long long int n, int base)
@@ -29,8 +30,8 @@ static int	find_digit_p(unsigned long long int n, int base)
 char	*ft_ptoa(unsigned long long int n, char *base)
 {
 	unsigned long long int	init;
-	int		digit;
-	char	*nbr;
+	int						digit;
+	char					*nbr;
 
 	init = n;
 	digit = find_digit_p(n, ft_strlen(base));

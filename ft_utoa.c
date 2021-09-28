@@ -9,6 +9,7 @@
 /*   Updated: 2021/09/28 21:17:24 by sohan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	find_digit_u(unsigned int n, int base)
@@ -29,8 +30,8 @@ static int	find_digit_u(unsigned int n, int base)
 char	*ft_utoa(unsigned int n, char *base)
 {
 	unsigned int	init;
-	int		digit;
-	char	*nbr;
+	int				digit;
+	char			*nbr;
 
 	init = n;
 	digit = find_digit_u(n, ft_strlen(base));

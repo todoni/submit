@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setting_length_utils.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sohan <sohan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/28 23:38:25 by sohan             #+#    #+#             */
+/*   Updated: 2021/09/28 23:38:27 by sohan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	set_width(const char **fmt, int *width)
@@ -5,13 +17,13 @@ void	set_width(const char **fmt, int *width)
 	if (ft_isdigit(**fmt) && **fmt != '0')
 	{
 		*width = ft_atoi(*fmt);
-		move_fmt_by_length(fmt, find_digit(*width));
+		move_fmt_by_length(fmt, find_digit_width(*width));
 	}
 }
 
 void	set_width_flag(t_component	*cmp)
 {
-	if ((cmp->bit & plus) || (cmp->bit &space))
+	if ((cmp->bit & plus) || (cmp->bit & space))
 		cmp->width_flag++;
 	if (cmp->bit & sharp)
 		cmp->width_flag += 2;
