@@ -35,6 +35,7 @@ void	set_prec(t_fp function[])
 {
 	function[PRECISION].usage = USED;
 	function[PRECISION].print_precision = print_padding_by_length;
+	function[ZERO].usage = NOT_USED;
 }
 
 void	set_space(t_fp function[])
