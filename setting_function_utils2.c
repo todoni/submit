@@ -33,12 +33,6 @@ void	set_character(t_fp function[])
 	function[ARGUMENT].usage = NOT_USED;
 }
 
-void	set_string(t_fp function[])
-{
-	function[ZERO].usage = NOT_USED;
-	function[PRECISION].usage = NOT_USED;
-}
-
 void	set_function_usage(int bit, t_fp function[])
 {
 	function[ARGUMENT].usage = USED;
@@ -59,6 +53,4 @@ void	set_function_usage(int bit, t_fp function[])
 		set_character(function);
 	if (bit & precision)
 		set_prec(function);
-	if (bit & string)
-		set_string(function);
 }
