@@ -23,9 +23,9 @@ void	set_width(const char **fmt, int *width)
 
 void	set_width_flag(t_component	*cmp)
 {
-	if ((cmp->bit & plus) || (cmp->bit & space))
+	if (((cmp->bit & plus) || (cmp->bit & space)) && cmp->_int > 0)
 		cmp->width_flag++;
-	if (cmp->bit & sharp)
+	if ((cmp->bit & sharp) && cmp->_uint)
 		cmp->width_flag += 2;
 }
 
